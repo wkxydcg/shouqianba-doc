@@ -23,7 +23,7 @@ description | 商品详情 |String(256) |N |对商品或本次交易的描述 |
 longitude | 经度 | String| N|经纬度必须同时出现 | "121.615459404"
 latitude | 维度 | String|N |经纬度必须同时出现 | "31.4056441552"
 device_id|设备指纹|String|N|
-extended | 扩展参数集合 | JSON map | N | 收钱吧与特定第三方单独约定的参数集合,json格式，最多支持24个字段，每个字段key长度不超过64字节，value长度不超过256字节 | { "goods_tag": "beijing"}
+extended | 扩展参数集合 | JSON map | N | 收钱吧与特定第三方单独约定的参数集合,json格式，最多支持24个字段，每个字段key长度不超过64字节，value长度不超过256字节,支付宝花呗参数放在这里进行透传hb_fq_num:分期数,hb_fq_seller_percent:商家承担手续费比例。sqb_hb_fq_buyer_service_charge 卖家承担的手续金额(分),sqb_hb_fq_seller_service_charge:卖家承担的手续费金额(分)| {"goods_tag":"beijing","extend_params":{"hb_fq_num":"12","hb_fq_seller_percent":"0"},"sqb_hb_fq_buyer_service_charge":100,"sqb_hb_fq_seller_service_charge":0},
 goods_details |商品详情 |JSON |N |格式为json goods_details的值为数组，每一个元素包含五个字段，goods_id商品的编号，goods_name商品名称，quantity商品数量，price商品单价，单位为分，promotion_type优惠类型，0:没有优惠 1: 支付机构优惠，为1会把相关信息送到支付机构 | "goods_details": [{"goods_id": "wx001","goods_name": "苹果笔记本电脑","quantity": 1,"price": 2,"promotion_type": 0},{"goods_id":"wx002","goods_name":"tesla","quantity": 1,"price": 2,"promotion_type": 1}]
 reflect | 反射参数 | String(64) | N | 任何调用者希望原样返回的信息，可以用于关联商户ERP系统的订单或记录附加订单内容 | { "tips": "200" }
 notify_url|回调|String(128)|N| 支付回调的地址|例如：www.baidu.com 如果支付成功通知时间间隔为1s,5s,30s,600s 
